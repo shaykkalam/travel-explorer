@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+</head>
+<body>
+    <div class="background-3d">
+        <spline-viewer url="https://prod.spline.design/6VvX9rVuYzHw40Sm/scene.splinecode"></spline-viewer>
+    </div>
+    
+    <header>
+        <h1>Plan Your Trip</h1>
+        <nav>
+        <ul>
+            <li><a href="main.html">Back To Home</a></li>
+        </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <br><br>
+        <div class="trip-form">
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" placeholder="Enter start location">
+            <br><br>
+            <label for="endLocation">Destination:</label>
+            <input type="text" id="endLocation" placeholder="Enter destination">
+            <br><br>
+            <button id="searchTrip">Plan Trip</button>
+        </div>
+        
+        <div id="tripDetails"></div>
+    </main>
+    
+    <script src="trip.js"></script>
+</body>
+</html>

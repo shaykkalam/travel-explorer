@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer</title>
+    <link rel="icon" type="images/logo.png" href="images/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+    <script>
+        function showWebsite() {
+            const globeContainer = document.getElementById('globe-container');
+            globeContainer.style.transform = 'scale(2)';
+            globeContainer.style.opacity = '0';
+            setTimeout(() => {
+                globeContainer.style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.body.style.overflow = 'auto';
+            }, 1000);
+        }
+    </script>
+    
+</head>
+<body>
+    
+    <div id="globe-container" class="globe-container" onclick="showWebsite()">
+        <spline-viewer url="https://prod.spline.design/6VvX9rVuYzHw40Sm/scene.splinecode"></spline-viewer>
+    </div>
+    
+    <div id="main-content">
+        <div class="background-3d">
+            <spline-viewer url="https://prod.spline.design/6VvX9rVuYzHw40Sm/scene.splinecode"></spline-viewer>
+        </div>
+        <header>
+            <h1>Travel Explorer</h1>
+            <nav>
+                <!-- <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search your destination...">
+                    <button class="search-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search">
+                    </button>
+                </div> -->
+                <div class="search-container">
+                    <input id="search-box" type="text" class="search-input" placeholder="Search your destination..." onkeypress="handleSearch(event)">
+
+                    <button class="search-icon" onclick="manualSearch()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search">
+                    </button>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="trip.html" >Make a trip</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="login.html" target="_blank" class="login-button">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="home" class="hero">
+            <h2>Discover Your Next Adventure</h2><br>
+            <p>Explore the world with us and find your perfect getaway.</p>
+        </section>
+        <section id="destinations">
+            <h2>Popular Destinations</h2>
+        <br>
+
+<!-- ------------------------------------------------------------------------------------------------------ -->
+
+<form id="weather-form">
+    <input type="text" id="city-input" placeholder="Enter city name" required>
+    <button type="submit">Get Weather</button>
+</form>
+<div id="weather-info"></div>
+
+<br>
+
+<!-- <button id="makeTripBtn">Make a Trip</button> -->
+
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+            <div class="destination-container">
+                <div class="destination" onclick="openGoogleMaps('Paris, France')">
+                    <img src="/images/paris.jpg" alt="Paris">
+                    <div class="destination-info">
+                        <h3>Paris, France</h3>
+                        <p>Experience the city of love and lights.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Bali, Indonesia')">
+                    <img src="/images/bali.jpg" alt="Bali">
+                    <div class="destination-info">
+                        <h3>Bali, Indonesia</h3>
+                        <p>Relax on stunning beaches and enjoy tropical paradise.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Tokyo, Japan')">
+                    <img src="/images/tokyo.jpg" alt="Tokyo">
+                    <div class="destination-info">
+                        <h3>Tokyo, Japan</h3>
+                        <p>Explore the vibrant culture and technology of Japan.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('New York, USA')">
+                    <img src="/images/newyork.jpg" alt="New York">
+                    <div class="destination-info">
+                        <h3>New York, USA</h3>
+                        <p>Experience the city that never sleeps.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Delhi, India')">
+                    <img src="/images/taj mahal.jpg" alt="taj mahal">
+                    <div class="destination-info">
+                        <h3>Delhi, India</h3>
+                        <p>Experience Eternal Love at the Majestic Taj Mahal.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Dubai, UAE')">
+                    <img src="/images/dubai.jpg" alt="dubai">
+                    <div class="destination-info">
+                        <h3>Dubai, UAE</h3>
+                        <p>Where Skyline Meets Sand – Discover the Wonders of Dubai.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Great wall of china, china')">
+                    <img src="/images/china.jpg" alt="china">
+                    <div class="destination-info">
+                        <h3>Great wall of china, china</h3>
+                        <p>Walk Through History on the Majestic Great Wall of China.</p>
+                    </div>
+                </div>
+
+                <div class="destination" onclick="openGoogleMaps('Pyramids, Egypt')">
+                    <img src="/images/egypt.jpg" alt="Egypt">
+                    <div class="destination-info">
+                        <h3>Pyramids, Egypt</h3>
+                        <p>Unlock the Secrets of the Ancient Pyramids of Egypt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+<!-- ---------------------------------------------------------------------------------------------- -->
+        <!-- <section id="weather">
+            <h2>Weather Info</h2>
+            <p><strong>City:</strong> <span id="city-name"></span></p>
+            <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
+            <p><strong>Condition:</strong> <span id="weather-condition"></span></p>
+            <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+        
+            Optional: City Search
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+        </section> -->
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required placeholder="enter your name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required placeholder="enter your email"><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" required placeholder="feedback/message"></textarea><br><br>
+                <button type="submit">Send</button>
+            </form>
+            <br>
+        </section>
+        <br><br>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We help travelers explore the world with ease.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected through our social media.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+<script>
+    function handleSearch(event) {
+        if (event.key === "Enter") {  // Detect Enter key
+            let query = document.getElementById("search-box").value.trim();
+
+            if (query !== "") { // Prevent empty searches
+                let googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+                window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab
+            }
+        }
+    }
+
+    function openGoogleMaps(place) {
+        if (place && place.trim() !== "") { // Ensure the place is valid
+            let googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+            window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab
+        }
+    }
+</script>
+
+</html>
